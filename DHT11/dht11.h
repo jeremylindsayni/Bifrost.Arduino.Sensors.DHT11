@@ -17,6 +17,7 @@ class DHT11
     byte Humidity();
 	byte Temperature();
 	byte Checksum();
+	void ToSerial();
   private:
 	int _dataPin;
     byte _humidity;
@@ -24,7 +25,7 @@ class DHT11
 	byte _checksum;
 	short deviceValues[40];
 	short environmentValues[5];
-	void ConvertByteArrayToInt(short byteArray[]);
+	void ConvertRawDataToValues(short byteArray[]);
 	bool LogicLevel(byte value);
 };
 

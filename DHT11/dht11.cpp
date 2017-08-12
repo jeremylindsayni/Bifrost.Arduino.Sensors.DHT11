@@ -44,7 +44,7 @@ void DHT11::Read()
 		lowStart = micros();
 	}
 	
-	ConvertByteArrayToInt(deviceValues);
+	ConvertRawDataToValues(deviceValues);
 }
 
 byte DHT11::Humidity()
@@ -62,7 +62,36 @@ byte DHT11::Checksum()
 	return _checksum;
 }
 
-void DHT11::ConvertByteArrayToInt(short byteArray[])
+/*
+  {
+      "Protocol": "Bifrost",
+      "Device": "DHT11",
+      "Properties": {
+          "Humidity": 123,
+          "Temperature": 456,
+          "Checksum": 789
+      }
+  }
+*/
+void DHT11::ToSerial()
+{
+	Serial.print("{");
+		Serial.print("\"Protocol\":"\"Bifrost\",");
+		Serial.print("\"Device\":\"DHT11\",");
+		Serial.print("\"Properties\":{");
+			Serial.print("\"Humidity\":");
+			Serial.print(Humidity());
+			Serial.print(",");
+			Serial.print("\"Temperature\"");
+			Serial.print(Temperature());
+			Serial.print(",");
+			Serial.print("\"Checksum\":");
+			Serial.println(Checksum());
+		Serial.print("}");
+	Serial.println("}");
+}
+
+void DHT11::ConvertRawDataToValues(short byteArray[])
 {
 	byte outputValue = 0;
 	for (short i = 0; i < 5; i++)

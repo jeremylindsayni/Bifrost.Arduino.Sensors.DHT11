@@ -3,3 +3,4 @@ Read	KEYWORD2
 Humidity	KEYWORD2
 Temperature	KEYWORD2
 Checksum	KEYWORD2
+ToSerial	KEYWORD2
