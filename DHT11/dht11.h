@@ -13,20 +13,20 @@ class DHT11
 {
   public:
     DHT11(int dataPin);
-	void Read();
+    void Read();
     byte Humidity();
-	byte Temperature();
-	byte Checksum();
-	void ToSerial();
+    byte Temperature();
+    byte Checksum();
+    void ToSerial();
   private:
-	int _dataPin;
+    int _dataPin;
     byte _humidity;
     byte _temperature;
-	byte _checksum;
-	short deviceValues[40];
-	short environmentValues[5];
-	void ConvertRawDataToValues(short byteArray[]);
-	bool LogicLevel(byte value);
+    byte _checksum;
+    short deviceValues[40];
+    short environmentValues[5];
+    void ConvertRawDataToValues(short byteArray[]);
+    bool LogicLevel(byte value);
 };
 
 #endif
