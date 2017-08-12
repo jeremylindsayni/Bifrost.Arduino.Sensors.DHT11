@@ -1,0 +1,5 @@
+DHT11	KEYWORD1
+Read	KEYWORD2
+Humidity	KEYWORD2
+Temperature	KEYWORD2
+Checksum	KEYWORD2
