@@ -64,30 +64,30 @@ byte DHT11::Checksum()
 }
 
 /*
-  {
-      "Protocol": "Bifrost",
-      "Device": "DHT11",
-      "Properties": {
-          "Humidity": 123,
-          "Temperature": 456,
-          "Checksum": 789
-      }
+{
+  "Protocol": "Bifrost",
+  "Device": "DHT11",
+  "Properties": {
+	  "Humidity": 123,
+	  "Temperature": 456,
+	  "Checksum": 789
   }
+}
 */
 void DHT11::ToSerial()
 {
     Serial.print("{");
-        Serial.print("\"Protocol\":"\"Bifrost\",");
+        Serial.print("\"Protocol\":\"Bifrost\",");
         Serial.print("\"Device\":\"DHT11\",");
         Serial.print("\"Properties\":{");
             Serial.print("\"Humidity\":");
             Serial.print(Humidity());
             Serial.print(",");
-            Serial.print("\"Temperature\"");
+            Serial.print("\"Temperature\":");
             Serial.print(Temperature());
             Serial.print(",");
             Serial.print("\"Checksum\":");
-            Serial.println(Checksum());
+            Serial.print(Checksum());
         Serial.print("}");
     Serial.println("}");
 }

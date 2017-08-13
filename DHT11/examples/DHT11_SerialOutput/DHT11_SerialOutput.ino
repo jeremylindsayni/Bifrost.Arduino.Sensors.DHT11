@@ -5,13 +5,13 @@
 DHT11 dht11(DATA_PIN);
 
 void setup(){
-  Serial.begin(9600);
+    Serial.begin(9600);
 }
 
 void loop() {
-  dht11.Read();
-  
-  dhtll.ToSerial();
+    dht11.Read();
 
-  delay(2000);
+    dht11.ToSerial();
+
+    delay(2000);
 }
